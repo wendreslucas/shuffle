@@ -15,6 +15,10 @@ const Sorteio = () => {
     e.preventDefault()
     if(resultado.has(participanteDaVez)) {
       setAmigoSecreto(resultado.get(participanteDaVez)!)
+      setTimeout(() => {
+        setAmigoSecreto('')
+      }, 2000)
+      return
     }
   }
 
@@ -31,7 +35,7 @@ const Sorteio = () => {
                 value={participanteDaVez}
                 onChange={evento => setParticipanteDaVez(evento.target.value)}
             >
-              <option>Selecione seu Nome</option>
+              <option placeholder="Selecione o participante">Selecione seu Nome</option>
                 {participantes.map(participante => <option key={participante}>{participante}</option>)}
             </select>
             <p>Clique em em sortear para ver quem é seu amigo secreto!</p>
